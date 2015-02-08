@@ -6,7 +6,7 @@
 		<%= review.comment%>
 		</br>
 		<% if review.user != nil %>
-		<em> by <%= review.user.name %></em>
+		<em> by <%= link_to review.user.name, user_path(:id) %></em>
 		Added on: <%= review.created_at %></br></br>
 		Edit form works but cannot link to it</br>
 		/products/:product_id/reviews/:id/edit</br>
