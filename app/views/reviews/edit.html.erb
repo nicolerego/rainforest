@@ -1,0 +1,7 @@
+<%= render "/shared/header" %>
+<% if current_user %>
+	<h4>Edit Review</h4>
+	<%= render "/products/newReviewForm" %>
+<% else %>
+	<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
+<% end %>
