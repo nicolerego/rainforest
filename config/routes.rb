@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'products#index'
+  get 'welcome/index'
+
+  root 'welcome#index'
 
   resources :products do
     resources :reviews

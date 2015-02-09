@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   end 
 
   def show
-  	@review = Review.find(params[:id])
+  	@review.newest_first = Review.find(params[:id])
     # @newest_first_review = Review.newest_first
   end
 

@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+<p>This is the application homepage<p>
+
+<h2>Recently Added Products</h2>
+<%= link_to "Add a New Product",  new_product_url %> 
+| <%= link_to "View all Products",  products_url %>
+<ul>
+	<% @products.each do |product| %>
+<li>
+	<%= link_to product.name, product_path(product) %></br> 
+	<%= product.description %> </br>
+	<%= product.formatted_price %>
+</li>
+	<% end %>
+</ul>
+
+<p>Work on: Wriitng tests, Sass tutorial</p>
+
+<p>Stretch Tasks:</br>
+	<ul>
+	<li>Create categories, add categories to products</li>
+	</ul>
+</p>
