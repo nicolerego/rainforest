@@ -1,5 +1,5 @@
 <%= render "/shared/header" %>
-<h1>All Products</h1>
+<h2>All Products</h2>
 <%= link_to "+ Add a New Product",  new_product_url %>
 <ul>
 	<% @products.each do |product| %>
@@ -10,3 +10,25 @@
 </li>
 	<% end %>
 </ul>
+
+<p>Work on: Wriitng tests, Sass tutorial</p>
+<p>Issues:</br>
+	<ul>
+	<li>Anyone can edit any product?? - Limit this to user who posted it</li>
+	<li>Anyone can edit any review - Limit this to user who posted it</li>
+	<li>Product - Show name of user who created it</li>
+	<li>Adding new review should redirect back to product_path(@product)</li>
+	</ul>
+</p>
+
+<p>Stretch Tasks:</br>
+	<ul>
+	<li>Sort reviews by newest first- works, but when implemeted get reviews the same for every product??</li>
+	<li>Create categories and tags</li>
+	<li>Add categories to products</li>
+	<li>Create homepage for application</li>
+	</ul>
+</p>
+
+
+

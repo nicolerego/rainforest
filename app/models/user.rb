@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
 
 	has_many :reviews
 	has_many :products, through: :reviews
+
+	has_many :owned_products, class_name: "Product", foreign_key: :owner_id
 end

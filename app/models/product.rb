@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 	has_many :reviews
 	has_many :users, through: :reviews
 
+	belongs_to :owner, class_name: "User"
+
 	validates :name, presence: true
 	validates :description, :name, presence: true
 	validates :price_in_cents, numericality: {only_integer: true}

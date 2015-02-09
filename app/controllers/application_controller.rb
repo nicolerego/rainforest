@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   end 
 
   helper_method :current_user
+  helper_method :ensure_logged_in
 
   def ensure_logged_in
   	unless current_user

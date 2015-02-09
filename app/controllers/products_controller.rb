@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
     if current_user
       @review = @product.reviews.build
     end 
+    @newest_first_review = Review.newest_first
   end
 
   def new
@@ -23,9 +24,10 @@ class ProductsController < ApplicationController
 
   def create
   	@product = Product.new(product_params)
+    @product.owner = current_user
 
   	if @product.save
-  		redirect_to products_url
+  		redirect_to product_path(@product)
   	else
   		render :new
   	end 

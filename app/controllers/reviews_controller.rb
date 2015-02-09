@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_filter :ensure_logged_in, only: [:create, :destroy]
+  before_filter :ensure_logged_in, only: [:create, :destroy, :edit, :update]
   before_filter :load_product
 
   def index
@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
 
   def show
   	@review = Review.find(params[:id])
+    # @newest_first_review = Review.newest_first
   end
 
   def edit
@@ -17,7 +18,7 @@ class ReviewsController < ApplicationController
   	@review = @product.reviews.build(review_params)
   	@review.user = current_user
   	if @review.save
-  		redirect_to products_path, notice: 'Review created successfully.'
+  		redirect_to product_path(@product), notice: 'Review created successfully.'
   	else
   		render 'products/show'
   	end
@@ -36,6 +37,7 @@ class ReviewsController < ApplicationController
   def destroy
   	@review = Review.find(params[:id])
   	@review.destroy
+    redirect_to product_path(@product)
   end
 
   private
