@@ -16,15 +16,28 @@ class ProductsController < ApplicationController
 
   def new
   	@product = Product.new
+    # @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   def edit
   	@product = Product.find(params[:id])
+    # @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   def create
   	@product = Product.new(product_params)
     @product.owner = current_user
+
+    # @product.category_id = params[:category_id]
+    # respond_to do |format|
+    #   if @product.save
+    #     format.html { redirect_to @product, notice: 'Product was successfully created.' }
+    #     format.json { render :show, status: :created, location: @product }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @product.errors, status: :unprocessable_entity }
+    #   end
+    # end
 
   	if @product.save
   		redirect_to product_path(@product)
@@ -35,6 +48,7 @@ class ProductsController < ApplicationController
 
   def update
   	@product = Product.find(params[:id])
+    # @product.category_id = params[:category_id]
 
   	if @product.update_attributes(product_params)
   		redirect_to product_path(@product)
